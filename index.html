@@ -31,7 +31,6 @@
             min-height: 100vh;
         }
 
-        /* --- Header Section --- */
         header {
             text-align: center;
             margin-bottom: 25px;
@@ -51,7 +50,6 @@
             color: var(--text-light);
         }
 
-        /* --- Tabs --- */
         .tab-container {
             display: flex;
             background: #e9ecef;
@@ -81,16 +79,15 @@
             font-weight: 700;
         }
 
-        /* --- Card & Table --- */
         .card {
             background: var(--white);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             width: 100%;
-            max-width: 1200px;
+            max-width: 1300px; /* ขยายความกว้างเล็กน้อยเพื่อให้พอดีกับข้อมูลที่เพิ่ม */
             overflow: hidden;
             animation: slideUp 0.6s ease;
-            display: none; /* Hide by default */
+            display: none;
         }
 
         .card.active { display: block; }
@@ -109,40 +106,42 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 900px; /* Minimum width to prevent cramping */
+            min-width: 1000px;
         }
 
         th {
             background: var(--primary-gradient);
             color: white;
-            padding: 18px;
+            padding: 15px;
             font-weight: 500;
             text-align: center;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            white-space: nowrap;
         }
 
-        /* Rounded corners for header */
         th:first-child { border-top-left-radius: var(--radius); }
         th:last-child { border-top-right-radius: var(--radius); }
 
         td {
-            padding: 15px;
+            padding: 12px 15px;
             text-align: center;
             border-bottom: 1px solid #f0f0f0;
             vertical-align: middle;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        tr:last-child td { border-bottom: none; }
         tr:hover { background-color: #fff9fa; }
 
-        /* --- Specific Column Styling --- */
         .col-profit {
             color: #27ae60;
             font-weight: 600;
             background-color: #f9fffb;
             border-radius: 10px;
+        }
+
+        .col-capital {
+            color: #e67e22; /* สีส้มให้ดูเป็นเรื่องเงินทุน */
+            font-weight: 600;
         }
 
         .col-level {
@@ -161,7 +160,6 @@
             width: 100%;
         }
 
-        /* --- Checkbox Design --- */
         .check-container {
             display: flex;
             justify-content: center;
@@ -169,13 +167,12 @@
         }
 
         input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             accent-color: #ff758c;
             cursor: pointer;
         }
 
-        /* --- Footer --- */
         footer {
             margin-top: 30px;
             color: #999;
@@ -183,11 +180,9 @@
             text-align: center;
         }
 
-        /* --- Mobile Adjustments --- */
         @media (max-width: 600px) {
             h1 { font-size: 1.5rem; }
-            td, th { padding: 12px 8px; font-size: 0.85rem; }
-            .tag-mindset { font-size: 0.8rem; }
+            td, th { padding: 10px 5px; font-size: 0.8rem; }
             .tab-btn { padding: 8px 15px; font-size: 0.8rem; }
         }
     </style>
@@ -212,6 +207,7 @@
                         <th width="5%">Done</th>
                         <th>ระดับ</th>
                         <th>ทุน/พอร์ต</th>
+                        <th>ทุนรวม<br><small>(10 พอร์ต)</small></th>
                         <th>Lot</th>
                         <th>กำไรต่อรอบ<br><small>(1 พอร์ต)</small></th>
                         <th>กำไรรวม<br><small>(10 พอร์ต)</small></th>
@@ -224,6 +220,7 @@
                         <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">เริ่มต้น</td>
                         <td>$50</td>
+                        <td class="col-capital">$500</td>
                         <td>0.01</td>
                         <td>$1.8</td>
                         <td>$18</td>
@@ -234,6 +231,7 @@
                         <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">สร้างตัว</td>
                         <td>$500</td>
+                        <td class="col-capital">$5,000</td>
                         <td>0.05</td>
                         <td>$9</td>
                         <td>$90</td>
@@ -244,6 +242,7 @@
                         <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">ตั้งตัว</td>
                         <td>$1,000</td>
+                        <td class="col-capital">$10,000</td>
                         <td>0.1</td>
                         <td>$18</td>
                         <td>$180</td>
@@ -254,6 +253,7 @@
                         <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">ทรงพลัง</td>
                         <td>$5,000</td>
+                        <td class="col-capital">$50,000</td>
                         <td>0.5</td>
                         <td>$90</td>
                         <td>$900</td>
@@ -264,6 +264,7 @@
                         <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">กึ่งเทพ</td>
                         <td>$10,000</td>
+                        <td class="col-capital">$100,000</td>
                         <td>1.0</td>
                         <td>$180</td>
                         <td>$1,800</td>
@@ -274,6 +275,7 @@
                         <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">มหาเทพ</td>
                         <td>$50,000</td>
+                        <td class="col-capital">$500,000</td>
                         <td>5.0</td>
                         <td>$900</td>
                         <td>$9,000</td>
@@ -284,6 +286,7 @@
                         <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">จักรพรรดิ</td>
                         <td>$100,000</td>
+                        <td class="col-capital">$1,000,000</td>
                         <td>10.0</td>
                         <td>$1,800</td>
                         <td>$18,000</td>
@@ -411,17 +414,8 @@
 
     <script>
         function openPlan(planId, btnElement) {
-            // Hide all cards
-            document.querySelectorAll('.card').forEach(card => {
-                card.classList.remove('active');
-            });
-            
-            // Remove active class from all buttons
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            // Show selected card & activate button
+            document.querySelectorAll('.card').forEach(card => card.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(planId).classList.add('active');
             btnElement.classList.add('active');
         }
