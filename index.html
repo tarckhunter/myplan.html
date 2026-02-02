@@ -84,7 +84,7 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             width: 100%;
-            max-width: 1300px; /* ขยายความกว้างเล็กน้อยเพื่อให้พอดีกับข้อมูลที่เพิ่ม */
+            max-width: 1300px;
             overflow: hidden;
             animation: slideUp 0.6s ease;
             display: none;
@@ -137,10 +137,11 @@
             font-weight: 600;
             background-color: #f9fffb;
             border-radius: 10px;
+            min-width: 120px;
         }
 
         .col-capital {
-            color: #e67e22; /* สีส้มให้ดูเป็นเรื่องเงินทุน */
+            color: #e67e22;
             font-weight: 600;
         }
 
@@ -173,17 +174,13 @@
             cursor: pointer;
         }
 
-        footer {
-            margin-top: 30px;
-            color: #999;
-            font-size: 0.8rem;
-            text-align: center;
-        }
-
+        /* Responsive Fixes */
         @media (max-width: 600px) {
             h1 { font-size: 1.5rem; }
             td, th { padding: 10px 5px; font-size: 0.8rem; }
             .tab-btn { padding: 8px 15px; font-size: 0.8rem; }
+            
+            /* Stack columns on small screens if needed, or keep scroll */
         }
     </style>
 </head>
@@ -212,7 +209,7 @@
                         <th>กำไรต่อรอบ<br><small>(1 พอร์ต)</small></th>
                         <th>กำไรรวม<br><small>(10 พอร์ต)</small></th>
                         <th>กำไรรายเดือน<br><small>(20 วัน)</small></th>
-                        <th>กำไรรายปี</th>
+                        <th>กำไรรายปี<br><small>(240 วัน)</small></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -308,7 +305,8 @@
                         <th>Balance ($)</th>
                         <th>Lot</th>
                         <th>กำไร/วัน<br><small>(เฉลี่ย)</small></th>
-                        <th>กำไร/เดือน<br><small>(20 วัน)</small></th>
+                        <th>กำไรรวม 20 วัน<br><small>(รายเดือน)</small></th>
+                        <th>กำไรรายปี<br><small>(240 วัน)</small></th>
                         <th>เป้าหมาย & วินัย 🧠</th>
                     </tr>
                 </thead>
@@ -318,8 +316,9 @@
                         <td>1</td>
                         <td>100 - 300</td>
                         <td>0.01</td>
-                        <td>$1.8 <br><small>(63 บ.)</small></td>
-                        <td class="col-profit">1,260 บ.</td>
+                        <td>$1.8</td>
+                        <td class="col-profit">$36<br><small>(1,260 บ.)</small></td>
+                        <td>1.5 หมื่น</td>
                         <td><div class="tag-mindset">🎯 ฝึกความนิ่งไม้เดียว</div></td>
                     </tr>
                     <tr>
@@ -327,8 +326,9 @@
                         <td>2</td>
                         <td>301 - 600</td>
                         <td>0.02</td>
-                        <td>$3.6 <br><small>(126 บ.)</small></td>
-                        <td class="col-profit">2,520 บ.</td>
+                        <td>$3.6</td>
+                        <td class="col-profit">$72<br><small>(2,520 บ.)</small></td>
+                        <td>3 หมื่น</td>
                         <td><div class="tag-mindset">🔋 สะสมพลัง "ไชโคว"</div></td>
                     </tr>
                     <tr>
@@ -336,8 +336,9 @@
                         <td>3</td>
                         <td>601 - 900</td>
                         <td>0.03</td>
-                        <td>$5.4 <br><small>(189 บ.)</small></td>
-                        <td class="col-profit">3,780 บ.</td>
+                        <td>$5.4</td>
+                        <td class="col-profit">$108<br><small>(3,780 บ.)</small></td>
+                        <td>4.5 หมื่น</td>
                         <td><div class="tag-mindset">🌱 เริ่มเห็นการเติบโต</div></td>
                     </tr>
                     <tr>
@@ -345,8 +346,9 @@
                         <td>4</td>
                         <td>901 - 1,500</td>
                         <td>0.05</td>
-                        <td>$9.0 <br><small>(315 บ.)</small></td>
-                        <td class="col-profit">6,300 บ.</td>
+                        <td>$9.0</td>
+                        <td class="col-profit">$180<br><small>(6,300 บ.)</small></td>
+                        <td>7.5 หมื่น</td>
                         <td><div class="tag-mindset">🚩 แตะ $1,000 แรก</div></td>
                     </tr>
                     <tr>
@@ -354,8 +356,9 @@
                         <td>5</td>
                         <td>1,501 - 3,000</td>
                         <td>0.1</td>
-                        <td>$18 <br><small>(630 บ.)</small></td>
-                        <td class="col-profit">12,600 บ.</td>
+                        <td>$18</td>
+                        <td class="col-profit">$360<br><small>(12,600 บ.)</small></td>
+                        <td>1.5 แสน</td>
                         <td><div class="tag-mindset">💰 รายได้เสริมเริ่มชัด</div></td>
                     </tr>
                     <tr>
@@ -363,8 +366,9 @@
                         <td>6</td>
                         <td>3,001 - 6,000</td>
                         <td>0.2</td>
-                        <td>$36 <br><small>(1,260 บ.)</small></td>
-                        <td class="col-profit">25,200 บ.</td>
+                        <td>$36</td>
+                        <td class="col-profit">$720<br><small>(25,200 บ.)</small></td>
+                        <td>3 แสน</td>
                         <td><div class="tag-mindset">👔 เท่าเงินเดือนพื้นฐาน</div></td>
                     </tr>
                     <tr>
@@ -372,8 +376,9 @@
                         <td>7</td>
                         <td>6,001 - 15,000</td>
                         <td>0.5</td>
-                        <td>$90 <br><small>(3,150 บ.)</small></td>
-                        <td class="col-profit">63,000 บ.</td>
+                        <td>$90</td>
+                        <td class="col-profit">$1,800<br><small>(63,000 บ.)</small></td>
+                        <td>7.5 แสน</td>
                         <td><div class="tag-mindset">😎 ระดับมืออาชีพ (Pro)</div></td>
                     </tr>
                     <tr>
@@ -381,8 +386,9 @@
                         <td>8</td>
                         <td>15,001 - 30,000</td>
                         <td>1.0</td>
-                        <td>$180 <br><small>(6,300 บ.)</small></td>
-                        <td class="col-profit">126,000 บ.</td>
+                        <td>$180</td>
+                        <td class="col-profit">$3,600<br><small>(1.2 แสน)</small></td>
+                        <td>1.5 ล้าน</td>
                         <td><div class="tag-mindset">🕊️ อิสรภาพทางการเงิน</div></td>
                     </tr>
                     <tr>
@@ -390,8 +396,9 @@
                         <td>9</td>
                         <td>30k - 100k</td>
                         <td>2.0</td>
-                        <td>$360 <br><small>(12,600 บ.)</small></td>
-                        <td class="col-profit">252,000 บ.</td>
+                        <td>$360</td>
+                        <td class="col-profit">$7,200<br><small>(2.5 แสน)</small></td>
+                        <td>3 ล้าน</td>
                         <td><div class="tag-mindset">🤫 รวยเงียบแบบเศรษฐี</div></td>
                     </tr>
                     <tr>
@@ -399,8 +406,9 @@
                         <td>10</td>
                         <td>300,000+</td>
                         <td>10.0</td>
-                        <td>$1,800 <br><small>(6.3 หมื่น)</small></td>
-                        <td class="col-profit">1.26 ล้าน</td>
+                        <td>$1,800</td>
+                        <td class="col-profit">$36,000<br><small>(1.2 ล้าน)</small></td>
+                        <td>15 ล้าน</td>
                         <td><div class="tag-mindset">🇨🇭 เศรษฐีสวิตเซอร์แลนด์</div></td>
                     </tr>
                 </tbody>
