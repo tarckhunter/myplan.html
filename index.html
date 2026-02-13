@@ -14,7 +14,7 @@
             --white: #ffffff;
             --shadow: 0 10px 30px rgba(0,0,0,0.08);
             --radius: 20px;
-            --border-color: #eeeeee; /* สีเส้นขอบที่ชัดเจน */
+            --border-color: #dddddd; /* เพิ่มความเข้มของเส้นขอบ */
         }
 
         * { box-sizing: border-box; }
@@ -106,8 +106,8 @@
 
         table {
             width: 100%;
-            border-collapse: collapse; /* ยุบรวมขอบตาราง */
-            min-width: 1000px;
+            border-collapse: collapse; /* บังคับให้เส้นขอบรวมกัน */
+            min-width: 900px;
         }
 
         th {
@@ -118,34 +118,30 @@
             text-align: center;
             font-size: 0.95rem;
             white-space: nowrap;
-            border-bottom: 2px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         td {
-            padding: 12px 15px;
+            padding: 15px;
             text-align: center;
-            border-bottom: 1px solid var(--border-color); /* เส้นขอบแถว */
+            border: 1px solid var(--border-color); /* ตีเส้นขอบรอบเซลล์ให้ตรงกัน */
             vertical-align: middle;
-            font-size: 0.9rem;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
+            font-size: 0.95rem;
         }
 
         tr:hover { background-color: #fff9fa; }
 
-        /* แก้ไขให้สีไม่ทับเส้นขอบ */
+        /* สีพื้นหลังสำหรับคอลัมน์กำไร */
         .col-profit {
             color: #27ae60;
             font-weight: 600;
-            box-shadow: inset 0 0 0 100px #f9fffb; /* ใช้ shadow แทน background */
+            background-color: #f9fffb;
         }
 
         .col-yearly {
             color: #0088cc;
             font-weight: 600;
-            box-shadow: inset 0 0 0 100px #f0f8ff; /* ใช้ shadow แทน background */
+            background-color: #f0f8ff;
         }
 
         .col-capital {
@@ -161,37 +157,25 @@
         .tag-mindset {
             background-color: #f0f4f8;
             color: #555;
-            padding: 6px 12px;
-            border-radius: 15px;
+            padding: 8px 12px;
+            border-radius: 10px;
             font-size: 0.85rem;
             display: inline-block;
             text-align: left;
-            width: 90%;
-        }
-
-        .check-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: #ff758c;
-            cursor: pointer;
+            width: 100%;
         }
 
         footer {
-            margin-top: 20px;
+            margin-top: 25px;
             color: var(--text-light);
             font-size: 0.85rem;
             padding-bottom: 20px;
+            text-align: center;
         }
 
         @media (max-width: 600px) {
             h1 { font-size: 1.5rem; }
-            td, th { padding: 10px 5px; font-size: 0.8rem; }
+            td, th { padding: 10px 8px; font-size: 0.85rem; }
             .tab-btn { padding: 8px 15px; font-size: 0.8rem; }
         }
     </style>
@@ -213,20 +197,18 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="5%">Done</th>
                         <th>ระดับ</th>
                         <th>ทุน/พอร์ต</th>
-                        <th>ทุนรวม<br><small>(10 พอร์ต)</small></th>
+                        <th>ทุนรวม (10 พอร์ต)</th>
                         <th>Lot</th>
-                        <th>กำไรต่อรอบ<br><small>(1 พอร์ต)</small></th>
-                        <th>กำไรรวม<br><small>(10 พอร์ต)</small></th>
-                        <th>กำไรรายเดือน<br><small>(20 วัน)</small></th>
-                        <th>กำไรรายปี<br><small>(240 วัน)</small></th>
+                        <th>กำไรต่อรอบ (1 พอร์ต)</th>
+                        <th>กำไรรวม (10 พอร์ต)</th>
+                        <th>กำไรรายเดือน (20 วัน)</th>
+                        <th>กำไรรายปี (240 วัน)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">เริ่มต้น</td>
                         <td>$50</td>
                         <td class="col-capital">$500</td>
@@ -237,7 +219,6 @@
                         <td class="col-yearly">$4,320<br><small>(1.5 แสน)</small></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">สร้างตัว</td>
                         <td>$500</td>
                         <td class="col-capital">$5,000</td>
@@ -248,7 +229,6 @@
                         <td class="col-yearly">$21,600<br><small>(7.5 แสน)</small></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">ตั้งตัว</td>
                         <td>$1,000</td>
                         <td class="col-capital">$10,000</td>
@@ -259,7 +239,6 @@
                         <td class="col-yearly">$43,200<br><small>(1.5 ล้าน)</small></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">ทรงพลัง</td>
                         <td>$5,000</td>
                         <td class="col-capital">$50,000</td>
@@ -270,7 +249,6 @@
                         <td class="col-yearly">$216,000<br><small>(7.5 ล้าน)</small></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">กึ่งเทพ</td>
                         <td>$10,000</td>
                         <td class="col-capital">$100,000</td>
@@ -281,7 +259,6 @@
                         <td class="col-yearly">$432,000<br><small>(15 ล้าน)</small></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">มหาเทพ</td>
                         <td>$50,000</td>
                         <td class="col-capital">$500,000</td>
@@ -292,7 +269,6 @@
                         <td class="col-yearly">$2,160,000<br><small>(75 ล้าน)</small></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td class="col-level">จักรพรรดิ</td>
                         <td>$100,000</td>
                         <td class="col-capital">$1,000,000</td>
@@ -312,19 +288,17 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="5%">Done</th>
                         <th>Lv.</th>
                         <th>Balance ($)</th>
                         <th>Lot</th>
-                        <th>กำไร/วัน<br><small>(เฉลี่ย)</small></th>
-                        <th>กำไรรวม 20 วัน<br><small>(รายเดือน)</small></th>
-                        <th>กำไรรายปี<br><small>(240 วัน)</small></th>
+                        <th>กำไร/วัน (เฉลี่ย)</th>
+                        <th>กำไรรวม 20 วัน (รายเดือน)</th>
+                        <th>กำไรรายปี (240 วัน)</th>
                         <th>เป้าหมาย & วินัย 🧠</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td>1</td>
                         <td>100 - 300</td>
                         <td>0.01</td>
@@ -334,7 +308,6 @@
                         <td><div class="tag-mindset">🎯 ฝึกความนิ่งไม้เดียว</div></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td>2</td>
                         <td>301 - 600</td>
                         <td>0.02</td>
@@ -344,7 +317,6 @@
                         <td><div class="tag-mindset">🔋 สะสมพลัง "ไชโคว"</div></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td>3</td>
                         <td>601 - 900</td>
                         <td>0.03</td>
@@ -354,7 +326,6 @@
                         <td><div class="tag-mindset">🌱 เริ่มเห็นการเติบโต</div></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td>4</td>
                         <td>901 - 1,500</td>
                         <td>0.05</td>
@@ -364,7 +335,6 @@
                         <td><div class="tag-mindset">🚩 แตะ $1,000 แรก</div></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td>5</td>
                         <td>1,501 - 3,000</td>
                         <td>0.1</td>
@@ -374,7 +344,6 @@
                         <td><div class="tag-mindset">💰 รายได้เสริมเริ่มชัด</div></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td>6</td>
                         <td>3,001 - 6,000</td>
                         <td>0.2</td>
@@ -384,7 +353,6 @@
                         <td><div class="tag-mindset">👔 เท่าเงินเดือนพื้นฐาน</div></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td>7</td>
                         <td>6,001 - 15,000</td>
                         <td>0.5</td>
@@ -394,7 +362,6 @@
                         <td><div class="tag-mindset">😎 ระดับมืออาชีพ (Pro)</div></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td>8</td>
                         <td>15,001 - 30,000</td>
                         <td>1.0</td>
@@ -404,7 +371,6 @@
                         <td><div class="tag-mindset">🕊️ อิสรภาพทางการเงิน</div></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td>9</td>
                         <td>30k - 100k</td>
                         <td>2.0</td>
@@ -414,7 +380,6 @@
                         <td><div class="tag-mindset">🤫 รวยเงียบแบบเศรษฐี</div></td>
                     </tr>
                     <tr>
-                        <td class="check-container"><input type="checkbox"></td>
                         <td>10</td>
                         <td>300,000+</td>
                         <td>10.0</td>
