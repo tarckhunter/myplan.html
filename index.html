@@ -9,12 +9,12 @@
         :root {
             --bg-body: #f4f7f6;
             --primary-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-            --secondary-gradient: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
             --text-dark: #444444;
             --text-light: #888888;
             --white: #ffffff;
             --shadow: 0 10px 30px rgba(0,0,0,0.08);
             --radius: 20px;
+            --border-color: #eeeeee; /* สีเส้นขอบที่ชัดเจน */
         }
 
         * { box-sizing: border-box; }
@@ -88,6 +88,7 @@
             overflow: hidden;
             animation: slideUp 0.6s ease;
             display: none;
+            border: 1px solid var(--border-color);
         }
 
         .card.active { display: block; }
@@ -105,7 +106,7 @@
 
         table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: collapse; /* ยุบรวมขอบตาราง */
             min-width: 1000px;
         }
 
@@ -117,35 +118,34 @@
             text-align: center;
             font-size: 0.95rem;
             white-space: nowrap;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
         }
-
-        th:first-child { border-top-left-radius: var(--radius); }
-        th:last-child { border-top-right-radius: var(--radius); }
 
         td {
             padding: 12px 15px;
             text-align: center;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid var(--border-color); /* เส้นขอบแถว */
             vertical-align: middle;
             font-size: 0.9rem;
         }
 
+        tr:last-child td {
+            border-bottom: none;
+        }
+
         tr:hover { background-color: #fff9fa; }
 
+        /* แก้ไขให้สีไม่ทับเส้นขอบ */
         .col-profit {
             color: #27ae60;
             font-weight: 600;
-            background-color: #f9fffb;
-            border-radius: 10px;
-            min-width: 120px;
+            box-shadow: inset 0 0 0 100px #f9fffb; /* ใช้ shadow แทน background */
         }
 
         .col-yearly {
             color: #0088cc;
             font-weight: 600;
-            background-color: #f0f8ff;
-            border-radius: 10px;
-            min-width: 120px;
+            box-shadow: inset 0 0 0 100px #f0f8ff; /* ใช้ shadow แทน background */
         }
 
         .col-capital {
@@ -166,7 +166,7 @@
             font-size: 0.85rem;
             display: inline-block;
             text-align: left;
-            width: 100%;
+            width: 90%;
         }
 
         .check-container {
@@ -180,6 +180,13 @@
             height: 18px;
             accent-color: #ff758c;
             cursor: pointer;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            padding-bottom: 20px;
         }
 
         @media (max-width: 600px) {
